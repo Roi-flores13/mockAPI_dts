@@ -3,7 +3,7 @@ import express, {
   type Request,
   type Response,
 } from "express";
-import userRoutes from "./routes/user.routes.js";
+import bookRoutes from "./routes/user.routes.js";
 
 const app: Application = express();
 
@@ -11,7 +11,7 @@ const app: Application = express();
 app.use(express.json());
 
 // Rutas
-app.use("/api/users", userRoutes);
+app.use("/api/books", bookRoutes);
 
 // Ruta de estado del servidor
 app.get("/health", (req: Request, res: Response) => {

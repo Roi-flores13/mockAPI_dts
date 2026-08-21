@@ -1,12 +1,7 @@
 import { Router, type Request, type Response } from "express";
+import { getAllBooks } from "../controllers/book.controller.js";
 
 const router = Router();
 
-router.get("/", (req: Request, res: Response) => {
-  res.json({
-    status: "success",
-    data: [{ id: 1, name: "Usuario Demo" }],
-  });
-});
-
+router.get("/", getAllBooks);
 export default router;
