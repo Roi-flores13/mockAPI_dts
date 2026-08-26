@@ -4,18 +4,13 @@ import express, {
   type Response,
 } from "express";
 import bookRoutes from "./routes/user.routes.js";
+import { logger } from "./middleware/logger.middleware.js"
 
-const app: Application = express();
+const app = express();
 
-// Middlewares globales
 app.use(express.json());
+app.use(logger);
+app.use("/api/books", bookRoutes)
 
-// Rutas
-app.use("/api/books", bookRoutes);
-
-// Ruta de estado del servidor
-app.get("/health", (req: Request, res: Response) => {
-  res.json({ status: "OK", uptime: process.uptime() });
-});
 
 export default app;
